@@ -4,6 +4,9 @@ export const appRoutes = {
     LOGIN: '/login',
     REGISTER: '/register',
     
+    EDITOR_DASHBOARD: '/editor/dashboard',
+
+    
     ADMIN: '/admin',
     ADMIN_DASHBOARD: '/admin/dashboard',
     ADMIN_LOGIN: 'login',

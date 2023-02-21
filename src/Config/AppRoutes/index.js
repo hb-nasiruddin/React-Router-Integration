@@ -25,6 +25,15 @@ export const router = createBrowserRouter([
         path: appRoutes.REGISTER,
         element: <Register />,
       },
+      {
+        path: appRoutes.EDITOR_DASHBOARD,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Dashboard />{" "}
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -34,7 +43,7 @@ export const router = createBrowserRouter([
       {
         path: appRoutes.ADMIN_DASHBOARD,
         element: (
-          <PrivateRoute>
+          <PrivateRoute isAdminRoute={true}>
             {" "}
             <Dashboard />{" "}
           </PrivateRoute>
