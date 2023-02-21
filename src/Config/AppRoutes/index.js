@@ -1,31 +1,46 @@
 import { createBrowserRouter } from "react-router-dom";
 import { appRoutes } from "../../Common/common";
-import AComponent from "../../Components/Pages/A";
-import BComponent from "../../Components/Pages/B";
-import CComponent from "../../Components/Pages/C";
-import DefaultComponent from "../../Components/Pages/Default";
+import PrivateRoute from "../../Components/Core/PrivateRoute";
+import Dashboard from "../../Components/Pages/Admin/Dashboard";
+import Home from "../../Components/Pages/Home";
+import Login from "../../Components/Pages/Login";
+import Register from "../../Components/Pages/Register";
+import AdminLayout from "../../Components/Part/Admin/Layout/Layout";
+import DefaultLayout from "../../Components/Part/Layout/Layout";
 
 export const router = createBrowserRouter([
   {
     path: appRoutes.DEFAULT,
-    element: <DefaultComponent />,
+    element: <DefaultLayout />,
+    children: [
+      {
+        path: appRoutes.HOME,
+        element: <Home />,
+      },
+      {
+        path: appRoutes.LOGIN,
+        element: <Login />,
+      },
+      {
+        path: appRoutes.REGISTER,
+        element: <Register />,
+      },
+    ],
   },
   {
-    path: appRoutes.AComonent,
-    element: <AComponent />,
-  },
-  {
-    path: appRoutes.LOGIN,
-    element: <BComponent />,
-  },
-  {
-    path: appRoutes.CComponent,
-    element: <CComponent />,
-  },
-
-  {
-    path: appRoutes.userdata,
-    element: <CComponent />,
+    path: appRoutes.ADMIN,
+    element: <AdminLayout />,
+    children: [
+      {
+        path: appRoutes.ADMIN_DASHBOARD,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Dashboard />{" "}
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);
 

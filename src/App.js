@@ -4,12 +4,12 @@ import {
 } from 'react-router-dom';
 import router from './Config/AppRoutes';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
   return (
     <div className="App">
-      App Component
       <RouterProvider router={router} />
     </div>
   );
